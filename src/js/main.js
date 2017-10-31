@@ -2,7 +2,9 @@
 
 $(function () {
     let gameBoard = $('#game-board');
-    let n = 3;
+    let n = 6;
+    let timer = 3;
+    let difficulty = 'easy';
 
     let divRow;
     for (let i = 0; i < n * n; i++) {
@@ -57,20 +59,44 @@ $(function () {
 
     getSettings();
 
-    console.log(n);
+    fillInWinOptions();
 
     function getSettings() {
-        let difficulty = $('input[name=difficulty]:checked').attr('id');
+        difficulty = $('input[name=difficulty]:checked').attr('id');
         let dimensionId = $('input[name=dimension]:checked').attr('id');
         n = parseInt(dimensionId[dimensionId.length - 1]);
         let timerId = $('input[name=timer]:checked').attr('id');
-        let timer = parseInt(timerId[timerId.length - 1]);
+        timer = parseInt(timerId[timerId.length - 1]);
         console.log(timer);
     }
 
     function fillInWinOptions() {
+        let dimensionsButton = $('.dimension-button');
+        let select = $('#winning-option');
+        dimensionsButton.on('click', function () {
+            select.empty();
+            let selectedDimension = stripString($(this).children('input').attr('id'));
+
+            // Get rid of magic number of 3..
+            for (let i = parseInt(selectedDimension); i >= 3; i--) {
+                console.log(i);
+                let option = $('<option></option>');
+                option.attr('value', i);
+                option.text(i);
+                select.append(option);
+            }
+
+            // console.log($(this).children('input').attr('id'));
+            console.log(selectedDimension);
+        });
 
 
+    }
+
+
+    function stripString(string) {
+        let length = string.length;
+        return parseInt(string[length - 1]);
     }
 
 });
