@@ -2,7 +2,6 @@
 
 $(function () {
     let gameBoard = $('#game-board');
-
     let n = 3;
 
     let divRow;
@@ -13,10 +12,21 @@ $(function () {
         }
 
         let divCol = $('<div></div>');
-        divCol.addClass("position-" + (i + 1) + " board-piece col-4");
+
+        // Checks for dimensions of game
+        if (n === 3) {
+            divCol.addClass("position-" + (i + 1) + " board-piece col-4");
+        } else if (n === 4) {
+            divCol.addClass("position-" + (i + 1) + " board-piece col-3");
+        } else if ( n === 5) {
+            divCol.addClass("position-" + (i + 1) + " board-piece col-xs-15");
+        } else {
+            divCol.addClass("position-" + (i + 1) + " board-piece col-2");
+        }
+
 
         // Get rid of border top for first row
-        if (Math.floor(i / 3) === 0) {
+        if (Math.floor(i / n) === 0) {
             divCol.addClass('no-top');
         };
 
@@ -26,18 +36,41 @@ $(function () {
         };
 
         // Get rid of right border
-        if (i % n === 2) {
+        if (i % n === (n - 1)) {
             divCol.addClass('no-right');
         };
+
+        // Get rid of border top for first row
+        if (Math.floor(i / n) === (n - 1)) {
+            divCol.addClass('no-bottom');
+        };
+
+
 
         divRow.append(divCol);
         gameBoard.append(divRow);
     }
 
-    $('.modal-button').on('click', function () {
+    $('.setting-button').on('click', function () {
         $('#myModal').modal('show');
     });
 
+    getSettings();
 
+    console.log(n);
+
+    function getSettings() {
+        let difficulty = $('input[name=difficulty]:checked').attr('id');
+        let dimensionId = $('input[name=dimension]:checked').attr('id');
+        n = parseInt(dimensionId[dimensionId.length - 1]);
+        let timerId = $('input[name=timer]:checked').attr('id');
+        let timer = parseInt(timerId[timerId.length - 1]);
+        console.log(timer);
+    }
+
+    function fillInWinOptions() {
+
+
+    }
 
 });

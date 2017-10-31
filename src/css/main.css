@@ -51,8 +51,7 @@ body {
     /*border: solid 2px #351F39;*/
     border: solid 2px #726A95;
     display: flex;
-    /*flex: 1 33%;*/
-    height: 100px;
+    height: 50px;
     width: 100%;
 }
 
@@ -63,20 +62,44 @@ body {
 
 }
 
-.modal-button, .modal-button:hover, .modal-button:active, .modal-button:not([disabled]):not(.disabled).active,
-.modal-button:not([disabled]):not(.disabled):active {
+.modal-button, .modal-save-button, .modal-button:focus, .setting-button {
     background-color: #726A95;
     border-color: #726A95;
 }
 
-.start-button, .start-button:hover, .start-button:active, .start-button:not([disabled]):not(.disabled).active,
-.start-button:not([disabled]):not(.disabled):active {
+.modal-button:hover, .modal-button:active, .modal-button:not([disabled]):not(.disabled).active,
+.modal-button:not([disabled]):not(.disabled):active,  .modal-save-button:hover, .modal-save-button:active,
+.modal-save-button:not([disabled]):not(.disabled).active, .modal-save-button:not([disabled]):not(.disabled):active {
+    background-color: #443F59;
+    border-color: #443F59;
+}
+
+
+
+.start-button {
     background-color: #A0C1B8;
     border-color: #A0C1B8;
 }
 
+.start-button:hover, .start-button:active, .start-button:not([disabled]):not(.disabled).active,
+.start-button:not([disabled]):not(.disabled):active {
+    background-color: #708780;
+    border-color: #708780;
+}
+
+
 .start-button, .modal-button {
     margin: 1em;
+}
+
+.setting-button {
+    font-size: 1em;
+    width: 40%;
+}
+
+.modal-close-button {
+    border-color: #726A95;
+    color: #726A95;
 }
 
 .btn {
@@ -86,21 +109,12 @@ body {
 
 .button-control {
     text-align: center;
-    margin-top: 1em;
+    margin-top: 3em;
 }
 
 .board-row {
     width: 100%;
 }
-
-/*.game-container {*/
-    /*display: flex;*/
-    /*flex-wrap: wrap;*/
-    /*width: 100%;*/
-    /*height: 500px;*/
-    /*align-content: center;*/
-    /*justify-content: center;*/
-/*}*/
 
 .no-top {
     border-top: 0;
@@ -118,6 +132,45 @@ body {
     border-bottom: 0;
 }
 
+.col-15,
+.col-xs-15,
+.col-sm-15,
+.col-md-15,
+.col-lg-15 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.col-xs-15 {
+    width: 20%;
+    float: left;
+}
+
+.modal-dialog {
+    max-width: 500px;
+}
+
+.modal-button {
+    margin: 0 1em;
+    width: 40%;
+    border-radius: 0.25em!important;
+
+}
+
+.modal-section {
+    margin: 0.5em 0 0 0;
+}
+
+legend {
+    margin-bottom: 0;
+}
+
+.modal-body {
+    padding: 2em 1em;
+}
+
 
 @media (min-width: 598px) {
     .board-piece {
@@ -128,28 +181,65 @@ body {
         width: 70%;
     }
 
+    .board-piece {
+        height: 60px;
+    }
+
+    .modal-dialog {
+        max-width: 600px;
+    }
+
+
 }
 
 
 @media (min-width: 768px) {
+    .col-sm-15 {
+        width: 20%;
+        float: left;
+    }
+
+    .board-piece {
+        height: 70px;
+    }
+
+    .modal-dialog {
+        max-width: 800px;
+    }
+
 
 }
 
 @media (min-width: 992px) {
     .board-piece {
-        height: 150px;
+        height: 80px;
     }
 
     .game-container {
         width: 50%;
     }
 
-    .btn {
-        font-size: 1.5em;
-        width: 25%;
+    /*.btn {*/
+        /*font-size: 1.5em;*/
+        /*width: 25%;*/
+    /*}*/
+
+    .col-md-15 {
+        width: 20%;
+        float: left;
     }
+
+
 }
 
 @media (min-width: 1200px) {
+    .col-lg-15 {
+        width: 20%;
+        float: left;
+    }
+
+    .board-piece {
+        height: 90px;
+    }
 
 }

@@ -37,7 +37,7 @@
 
             </div>
             <div class="button-control">
-                <button type="button" class="btn btn-primary modal-button" data-toggle="modal">
+                <button type="button" class="btn btn-primary setting-button" data-toggle="modal">
                     Settings
                 </button>
                 <button type="button" class="btn btn-primary start-button">Start</button>
@@ -49,17 +49,70 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <h5 class="modal-title">Game Settings</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            ...
+                            <fieldset class="modal-section">
+                                <legend>Difficulty:</legend>
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="btn btn-primary active modal-button">
+                                        <input type="radio" name="difficulty" id="difficulty-easy" autocomplete="off" checked> Easy
+                                    </label>
+                                    <label class="btn btn-primary modal-button">
+                                        <input type="radio" name="difficulty" id="difficulty-medium" autocomplete="off"> Medium
+                                    </label>
+                                    <label class="btn btn-primary modal-button">
+                                        <input type="radio" name="difficulty" id="difficulty-hard" autocomplete="off"> Hard
+                                    </label>
+                                </div>
+                            </fieldset>
+                            <fieldset class="modal-section">
+                                <legend>Dimensions:</legend>
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="btn btn-primary active modal-button">
+                                        <input type="radio" name="dimension" id="dimension-3" autocomplete="off" checked> 3x3
+                                    </label>
+                                    <label class="btn btn-primary modal-button">
+                                        <input type="radio" name="dimension" id="dimension-4" autocomplete="off"> 4x4
+                                    </label>
+                                    <label class="btn btn-primary modal-button">
+                                        <input type="radio" name="dimension" id="dimension-5" autocomplete="off"> 5x5
+                                    </label>
+                                    <label class="btn btn-primary modal-button">
+                                        <input type="radio" name="dimension" id="dimension-6" autocomplete="off"> 6x6
+                                    </label>
+                                </div>
+                            </fieldset>
+
+                            <fieldset class="modal-section">
+                                <legend>In A Row:</legend>
+                                <select class="form-control" id="sel1">
+                                </select>
+                            </fieldset>
+
+                            <fieldset class="modal-section">
+                                <legend>Timer:</legend>
+
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="btn btn-primary active modal-button">
+                                        <input type="radio" name="timer" id="timer-3" autocomplete="off" checked> 3 seconds
+                                    </label>
+                                    <label class="btn btn-primary modal-button">
+                                        <input type="radio" name="timer" id="timer-5" autocomplete="off"> 5 seconds
+                                    </label>
+                                    <label class="btn btn-primary modal-button">
+                                        <input type="radio" name="timer" id="timer-10" autocomplete="off"> 10 seconds
+                                    </label>
+                                </div>
+                            </fieldset>
+
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-secondary modal-setting-button modal-close-button" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary modal-setting-button modal-save-button">Save settings</button>
                         </div>
                     </div>
                 </div>
