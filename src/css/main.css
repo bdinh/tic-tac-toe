@@ -1,0 +1,381 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Raleway, sans-serif;
+}
+.navbar {
+    background-color: #726A95;
+    padding: 1rem 1rem!important;
+    margin-bottom: 0;
+}
+
+.nav-link, .navbar-brand, .learn-more {
+    color: #ffffff!important;
+}
+.nav-link {
+    margin-right: 1em;
+}
+
+.navbar-brand {
+    margin-left: 1em;
+}
+
+.navbar-toggler {
+    border-color: transparent!important;
+}
+
+#play-button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    width: 150px;
+    margin: auto;
+    border-radius: 8px;
+    border: solid 4px #C5D2DB;
+}
+
+#game-board {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.board-piece {
+    /*border: solid 2px #351F39;*/
+    border: solid 2px #726A95;
+    display: flex;
+    height: 90px;
+    width: 100%;
+    cursor: pointer;
+}
+
+#option {
+    width: 75%;
+    height: 90%;
+    background-color: #34495E;
+
+}
+
+.modal-button, .modal-save-button, .modal-button:focus, .setting-button {
+    background-color: #726A95;
+    border-color: #726A95;
+}
+
+.setting-button:disabled, .btn.dimension-4, .btn.dimension-5 {
+    background-color: #B8B4CA;
+    border-color: #B8B4CA;
+}
+
+.modal-button:hover, .modal-button:active, .modal-button:not([disabled]):not(.disabled).active,
+.modal-button:not([disabled]):not(.disabled):active,  .modal-save-button:hover, .modal-save-button:active,
+.modal-save-button:not([disabled]):not(.disabled).active, .modal-save-button:not([disabled]):not(.disabled):active,
+.setting-button:active, .setting-button:hover {
+    background-color: #443F59;
+    border-color: #443F59;
+}
+
+
+
+.start-button, .o-button {
+    background-color: #A0C1B8;
+    border-color: #A0C1B8;
+}
+
+.start-button:hover, .start-button:active, .start-button:not([disabled]):not(.disabled).active,
+.start-button:not([disabled]):not(.disabled):active, .o-button:hover, .o-button:active, .o-button:not([disabled]):not(.disabled).active,
+.o-button:not([disabled]):not(.disabled):active {
+    background-color: #708780;
+    border-color: #708780;
+}
+
+.start-button:disabled {
+    background-color: #CFE0DB;
+    border-color: #CFE0DB;
+}
+
+
+.start-button, .modal-button {
+    margin: 1em;
+}
+
+.setting-button {
+    font-size: 1em;
+    width: 40%;
+}
+
+.modal-close-button, .modal-rules-button {
+    border-color: #726A95;
+    color: #726A95;
+}
+
+.btn {
+    font-size: 1em;
+    width: 25%;
+}
+
+.button-control {
+    text-align: center;
+    margin-top: 3em;
+}
+
+.board-row {
+    width: 100%;
+}
+
+.no-top {
+    border-top: 0;
+}
+
+.no-left {
+    border-left: 0;
+}
+
+.no-right {
+    border-right: 0;
+}
+
+.no-bottom {
+    border-bottom: 0;
+}
+
+.col-15,
+.col-xs-15,
+.col-sm-15,
+.col-md-15,
+.col-lg-15 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.col-xs-15 {
+    width: 20%;
+    float: left;
+}
+
+.modal-dialog {
+    max-width: 500px;
+}
+
+.modal-button {
+    margin: 0 1em;
+    width: 40%;
+    border-radius: 0.25em!important;
+
+}
+
+.modal-section {
+    margin: 0.5em 0 0 0;
+}
+
+legend {
+    margin-bottom: 0;
+}
+
+.modal-body {
+    padding: 2em 1em;
+}
+
+.modal-hide{
+    display: none;
+}
+
+.modal-show {
+    display: block;
+}
+
+.starting-turn {
+    display: inline-block;
+}
+
+.turn-button {
+    width: 60%;
+}
+
+.modal-row {
+    margin: 1em 0;
+}
+
+/*.turn-section {*/
+    /*margin-left: 4em;*/
+/*}*/
+
+.times-symbol {
+    font-size: 4em;
+    margin: 0 auto;
+    color: #443F59;
+    
+}
+
+.circle-symbol {
+    font-size: 4em;
+    margin: 0 auto;
+    color: #708780;
+}
+
+.top-spacing {
+    margin-top: 100px;
+}
+
+.extra-top-spacing {
+    margin-top: 125px;
+}
+.game-turn-spacing {
+    margin-bottom: 50px;
+    margin-top: 25px;
+}
+
+
+p.game-stat {
+    margin-bottom: 0;
+    font-size: 1em;
+    white-space: nowrap;
+}
+
+#turn-display {
+    text-align: center;
+}
+
+.timer-hide {
+    display: none;
+}
+
+.timer-show {
+    display: inline;
+}
+
+.turn-text {
+    font-size: 2em;
+    font-weight: 500;
+}
+
+.stat-value {
+    font-weight: bold;
+}
+
+.content {
+    margin-top: 2em;
+}
+
+.formulation-term, .formulation-definition {
+    display: inline;
+}
+
+.formulation-group {
+    margin: 0.5em 0 0.5em 1em;
+}
+
+.code-style {
+    font-size: 90%;
+    color: #bd4147;
+    background-color: #f7f7f9;
+    border-radius: .25rem;
+}
+
+.disabled {
+    pointer-events: none;
+}
+
+.modal-rules-button {
+    width: inherit;
+}
+
+.tool-tip {
+    display: none;
+}
+
+.modal {
+    top: 100px;
+}
+
+
+h2 {
+    margin-top: 1em;
+}
+
+blockquote {
+    margin:1.5em 1.5em;
+}
+
+.italicize {
+    font-style: italic;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+@media (min-width: 598px) {
+    .board-piece {
+        height: 150px;
+    }
+
+    .game-container {
+        width: 70%;
+    }
+
+    .board-piece {
+        height: 90px;
+    }
+
+    .modal-dialog {
+        max-width: 600px;
+    }
+
+    .setting-button, .start-button {
+        width: inherit;
+    }
+
+}
+
+
+@media (min-width: 768px) {
+    .col-sm-15 {
+        width: 20%;
+        float: left;
+    }
+
+    .board-piece {
+        height: 70px;
+    }
+
+    .modal-dialog {
+        max-width: 800px;
+    }
+
+
+}
+
+@media (min-width: 992px) {
+    .board-piece {
+        height: 80px;
+    }
+
+    .game-container {
+        width: 50%;
+    }
+
+    .col-md-15 {
+        width: 20%;
+        float: left;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    .col-lg-15 {
+        width: 20%;
+        float: left;
+    }
+
+    .board-piece {
+        height: 90px;
+    }
+
+}
