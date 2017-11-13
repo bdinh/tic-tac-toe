@@ -5,47 +5,70 @@
     <meta name="author" content="Bao Dinh">
     <meta name="description" content="K in a row site that utilizes state space search concepts for it's AI bot.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>K IN A Row</title>
+    <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
     <script src="https://use.fontawesome.com/83cdf34685.js"></script>
     <script src="src/js/main.js"></script>
     <link rel="stylesheet" href="src/css/main.css"></head>
 <body>
     <header>
         <nav class="navbar navbar-toggleable-sm navbar-inverse fixed-top">
-            <a class="navbar-brand" href="#home">K In A Row</a>
+            <a class="navbar-brand" href=".">Tic Tac Toe</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="">Play <span class="sr-only">(current)</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Rules</a></li>
+                    <li class="nav-item"><a class="nav-link" href=".">Play <span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="rules.html">Rules</a></li>
                 </ul>
             </div>
         </nav>
     </header>
     <main>
-        <div class="game-container container">
-            <div class="game-text"></div>
+        <div class="container message-display-zone">
+            <div class="top-spacing game-text row">
+                <div id="score-display" class="col-md-2">
+                    <p class="game-stat">User Win: <span id="user-win-count" class="stat-value"></span></p>
+                    <p class="game-stat">AI Win: <span id="ai-win-count" class="stat-value"></span></p>
+                    <p class="game-stat">Tie: <span id="tie-count" class="stat-value"></span></p>
+                    <p class="game-stat">Current Session: <span id="current-session" class="stat-value"></span></p>
+                </div>
+                <div class="col-md-8">
+                </div>
+                <div id="timer-display" class="col-md-2">
+                    <p class="timer-display timer-hide">3 seconds left</p>
+                </div>
+            </div>
+            <div class="game-text game-turn-spacing row">
+                <div id="turn-display" class="col-md-12">
+                    <p class="turn-text">Let's Play!</p>
+                </div>
+            </div>
+        </div>
+        <div class="game-container container" role="application">
             <div id="game-board">
+                <canvas id="piece-1">
 
+                </canvas>
+                <canvas id="piece-2">
+
+                </canvas>
             </div>
             <div class="button-control">
                 <button type="button" class="btn btn-primary setting-button" data-toggle="modal">
                     Settings
                 </button>
-                <button type="button" class="btn btn-primary start-button">Start</button>
+                <button type="button" class="btn btn-primary start-button">Play</button>
 
             </div>
 
-            <!-- Modal -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog"  aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -55,72 +78,105 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <fieldset class="modal-section">
-                                <legend>Difficulty:</legend>
-                                <div class="btn-group" data-toggle="buttons">
-                                    <label class="btn btn-primary active modal-button">
-                                        <input type="radio" name="difficulty" id="difficulty-easy" autocomplete="off" checked> Easy
-                                    </label>
-                                    <label class="btn btn-primary modal-button">
-                                        <input type="radio" name="difficulty" id="difficulty-medium" autocomplete="off"> Medium
-                                    </label>
-                                    <label class="btn btn-primary modal-button">
-                                        <input type="radio" name="difficulty" id="difficulty-hard" autocomplete="off"> Hard
-                                    </label>
+                            <div class="row container modal-row">
+                                <div class="col-12 col-sm-6">
+                                    <fieldset class="modal-section">
+                                        <legend>Difficulty:</legend>
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn-primary modal-button">
+                                                <input type="radio" name="difficulty" id="difficulty-easy" > Easy
+                                            </label>
+                                            <label class="btn btn-primary active modal-button">
+                                                <input type="radio" name="difficulty" id="difficulty-medium" checked> Medium
+                                            </label>
+                                            <label class="btn btn-primary modal-button">
+                                                <input type="radio" name="difficulty" id="difficulty-hard"> Hard
+                                            </label>
+                                        </div>
+                                    </fieldset>
                                 </div>
-                            </fieldset>
-                            <fieldset class="modal-section">
-                                <legend>Dimensions:</legend>
-                                <div class="btn-group" data-toggle="buttons">
-                                    <label class="btn btn-primary active modal-button dimension-button">
-                                        <input type="radio" name="dimension" id="dimension-3" autocomplete="off" checked> 3x3
-                                    </label>
-                                    <label class="btn btn-primary modal-button dimension-button">
-                                        <input type="radio" name="dimension dimension-button" id="dimension-4" autocomplete="off"> 4x4
-                                    </label>
-                                    <label class="btn btn-primary modal-button dimension-button">
-                                        <input type="radio" name="dimension" id="dimension-5" autocomplete="off"> 5x5
-                                    </label>
-                                    <label class="btn btn-primary modal-button dimension-button">
-                                        <input type="radio" name="dimension" id="dimension-6" autocomplete="off"> 6x6
-                                    </label>
+                                <div class="col-12 col-sm-6">
+                                    <fieldset class="modal-section">
+                                        <legend>AI Timer:</legend>
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn-primary active modal-button">
+                                                <input type="radio" name="timer" id="timer-3" checked> 3 seconds
+                                            </label>
+                                            <label class="btn btn-primary modal-button">
+                                                <input type="radio" name="timer" id="timer-5"> 5 seconds
+                                            </label>
+                                            <label class="btn btn-primary modal-button">
+                                                <input type="radio" name="timer" id="timer-10" > 10 seconds
+                                            </label>
+                                        </div>
+                                    </fieldset>
                                 </div>
-                            </fieldset>
-
-                            <fieldset class="modal-section">
-                                <legend>In A Row:</legend>
-                                <select class="form-control" id="winning-option">
-                                    <option value="3">3</option>
-                                </select>
-                            </fieldset>
-
-                            <fieldset class="modal-section">
-                                <legend>Timer:</legend>
-
-                                <div class="btn-group" data-toggle="buttons">
-                                    <label class="btn btn-primary active modal-button">
-                                        <input type="radio" name="timer" id="timer-3" autocomplete="off" checked> 3 seconds
-                                    </label>
-                                    <label class="btn btn-primary modal-button">
-                                        <input type="radio" name="timer" id="timer-5" autocomplete="off"> 5 seconds
-                                    </label>
-                                    <label class="btn btn-primary modal-button">
-                                        <input type="radio" name="timer" id="timer-10" autocomplete="off"> 10 seconds
-                                    </label>
+                            </div>
+                            <div class="row container modal-row">
+                                <div class="col-12 col-sm-6">
+                                    <fieldset class="modal-section">
+                                        <legend>Dimensions:</legend>
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn-primary active modal-button dimension-button">
+                                                <input type="radio" name="dimension" id="dimension-3" value="dimension-3"  checked> 3x3
+                                            </label>
+                                            <label class="btn btn-primary modal-button dimension-button dimension-4 disabled" >
+                                                <input type="radio" name="dimension" id="dimension-4" value="dimension-4"  disabled> 4x4
+                                            </label>
+                                            <label class="btn btn-primary modal-button dimension-button dimension-5 disabled" >
+                                                <input type="radio" name="dimension" id="dimension-5" value="dimension-5" disabled> 5x5
+                                            </label>
+                                        </div>
+                                    </fieldset>
                                 </div>
-                            </fieldset>
-
+                                <div class="col-12 col-sm-6">
+                                    <fieldset class="modal-section">
+                                        <legend>In A Row:</legend>
+                                        <select class="form-control" id="winning-option">
+                                            <option value="3">3</option>
+                                        </select>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="row container modal-row">
+                                <div class="col-12 col-sm-6">
+                                    <fieldset class="modal-section turn-section">
+                                        <legend>Starting Turn:</legend>
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn-primary active modal-button turn-button">
+                                                <input type="radio" name="turn" id="user" checked> User
+                                            </label>
+                                            <label class="btn btn-primary modal-button turn-button">
+                                                <input type="radio" name="turn" id="ai"> AI
+                                            </label>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <fieldset class="modal-section turn-section">
+                                        <legend>User Icon:</legend>
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn-primary active modal-button icon-button">
+                                                <input type="radio" name="icon" id="X-icon" checked> X
+                                            </label>
+                                            <label class="btn btn-primary modal-button icon-button o-button">
+                                                <input type="radio" name="icon" id="O-icon" > O
+                                            </label>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
                         </div>
                         <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary modal-setting-button modal-rules-button" >?</button>
                             <button type="button" class="btn btn-secondary modal-setting-button modal-close-button" data-dismiss="modal">Close</button>
                             <button type="button" class="btn btn-primary modal-setting-button modal-save-button">Save settings</button>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </main>
-
-
 </body>
 </html>

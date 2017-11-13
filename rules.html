@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Bao Dinh">
+    <meta name="description" content="K in a row site that utilizes state space search concepts for it's AI bot.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="ht.tps://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="src/css/main.css"></head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-toggleable-sm navbar-inverse fixed-top">
+            <a class="navbar-brand" href="#home">Tic Tac Toe</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Play <span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="rules.html">Rules</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container extra-top-spacing">
+        <div class="container content">
+            <div class="container">
+                <h2>Objective</h2>
+                <p>The player who succeeds in placing their 3 (defaults to 3 until other options available) of their marks in a horizontal, vertical or diagonal row wins the game.</p>
+            </div>
+            <div class="container">
+                <h2>Difficulty</h2>
+                <p>The game supports three types of difficulty. Easy, Medium and Hard. With the difficulty set to easy, the AI randomly selects open positions to
+                    place it's marks. With the difficulty set to medium, the AI is playing with a scoring function 50% of the time and thus may result in
+                    mistakes when playing. With the difficulty set to hard, the AI will select only the best options that will result in either a victory or a tie.</p>
+                <img src="src/image/difficulty.png" alt="The difficulty settings option within our game">
+                <p>The default setting is set at medium</p>
+            </div>
+            <div class="container">
+                <h2>Timer</h2>
+                <p>The timer option is used to limit the AI in the time in which it gets to calculate the best possible state.
+                The more time the AI gets, the more state it can potentially reach and thus will return a more optimal solution
+                as the board size increases. Currently this version doesn't utilize a timer in it's MiniMax algorithm and thus
+                will be released in the next version once Alpha Beta Pruning is fully implemented.</p>
+                <img src="src/image/timer.png" alt="The timer settings option within our game">
+                <p>The default setting is set at 3 seconds</p>
+            </div>
+            <div class="container">
+                <h2>Dimension</h2>
+                <p>Different board size will be supported in future installations. Currently the time it takes to process
+                best state is not optimal and needs to be reevaluate, prior to enabling the 4x4 and 5x5 options.</p>
+                <img src="src/image/dimension.png" alt="The dimension settings option within our game">
+                <p>The default setting is set at 3x3 and other options will be enabled on future updates</p>
+            </div>
+            <div class="container">
+                <h2>In A Row</h2>
+                <p>Based on the size of the board, the user is able to select the amount of marks in a row that will designate
+                as a victory. For board size of 3x3 the only option is 3. But as the board scales up, the amount of marks in a row
+                will vary from n (square board dimension) (n -1), (n -2) to 3. Thus boards with a dimension of 5x5 will be able to
+                select options of 5, 4, 3 in a row.</p>
+                <img src="src/image/in-a-row.png" alt="The in a row settings option within our game">
+                <p>The default setting is set at 3 since the only available board size at the moment is 3x3</p>
+            </div>
+            <div class="container">
+                <h2>Starting Turn</h2>
+                <p>Sets the starting turn for each game. Either the user gets to start or the AI will start depending
+                on the setting chosen.</p>
+                <img src="src/image/starting-turn.png" alt="The starting turn settings option within our game">
+                <p>The default setting is set to the User</p>
+            </div>
+            <div class="container">
+                <h2>User Icon</h2>
+                <p>Selects the icon in which the user decides to play with.</p>
+                <img src="src/image/icon.png" alt="The user icon settings option within our game">
+                <p>The default setting is set at X</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
