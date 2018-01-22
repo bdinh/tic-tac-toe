@@ -1,5 +1,8 @@
-# Interactive Game
+# Tic-Tac-Toe
 
-This repository contains code for an interactive web game, created for the [Client-Side Web Development](https://canvas.uw.edu/courses/1118282) course at the UW iSchool.
+###### NO LONGER BEING UPDATED
 
-The site can be viewed at <https://info343b-a17.github.io/game-bdinh/>
+### Project Description: 
+A simple interactive game of Tic-Tac-Toe, supplemented with a brief explanation to game-theory.
+
+The site can be viewed at [here](https://bdinh.github.io/tic-tac-toe/)
